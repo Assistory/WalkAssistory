@@ -94,5 +94,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val t = "${location.provider} ${location.longitude} ${location.latitude} ${location.altitude}"
         Toast.makeText(this, t, Toast.LENGTH_LONG).show()
 
+        val myLocation = LatLng(location.latitude, location.longitude)
+        mMap.addMarker(MarkerOptions().position(myLocation).title("Marker in myLocation"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(myLocation))
+
     }
 }
